@@ -76,8 +76,6 @@ h4{
 	text-decoration: none;
 }
 button{
-	background: center / contain no-repeat url("./images/but.png"),
-	#eee 35% url("./images/but.png");
 	background-color: white;
 	color: #000000;
 	margin: 0%;
