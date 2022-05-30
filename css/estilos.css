@@ -12,6 +12,7 @@ body {
 	width: 200px;
 }
 .tpfinal {
+	background:url(./images/but.png) no-repeat;
 	margin-top: 0;
 	min-width: 75%;
 	max-height:auto;
