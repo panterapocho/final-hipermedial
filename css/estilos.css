@@ -12,7 +12,8 @@ body {
 	width: 200px;
 }
 .tpfinal {
-	background:url(./images/but.png) no-repeat;
+	background: center / contain no-repeat url("./images/but.png"),
+            #eee 35% url("./images/but.png");
 	margin-top: 0;
 	min-width: 75%;
 	max-height:auto;
@@ -44,7 +45,6 @@ h4{
 }
 
 .descripcion_tpfinal {
-	background:url(./images/but.png) no-repeat;
 	font-size: 1em;
 	text-align: justify;
 	padding: 1em;
