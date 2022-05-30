@@ -43,6 +43,7 @@ h4{
 }
 
 .descripcion_tpfinal {
+	background:url(./images/but.png) no-repeat;
 	font-size: 1em;
 	text-align: justify;
 	padding: 1em;
