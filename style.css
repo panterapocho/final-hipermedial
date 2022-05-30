@@ -1,0 +1,177 @@
+html, body {
+    min-height: 100%;
+  }
+
+body{
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    color: white;
+}
+
+
+
+article{
+    /* transform: scale(1.1) skew(18deg); */
+
+
+    /*
+    width: 200px;
+    height: 50px;
+    overflow: auto;
+    */
+
+    border: 2px solid rgb(0, 255, 157);
+
+    /*margin: 25px;*/
+
+    width: 75%;
+    min-width: 250px;
+    max-width: 750px;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+    text-align: justify;
+    box-shadow: 8px 13px 24px 7px rgba(0,0,0,0.51);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.presentacion{
+    text-align: center;
+    text-shadow: -6px 3px 6px rgba(0,0,0,0.49);
+    padding: 0%;
+}
+
+.presentacion h1{
+    font-size: 3em;
+    padding: 1%;
+    margin: 0%;
+}
+
+.presentacion h2{
+    font-size: 2em;
+    padding: 1%;
+    margin: 0%;
+}
+
+.presentacion h3 h4{
+        font-size: 1.5em;
+        padding: 1%;
+        margin: 0%;
+}
+
+.nav_pag{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1.5%;
+    text-align: center;
+    font-size: 80%;
+}
+
+li{
+    display:  inline-table/*inline-block*/;
+}
+
+.lista_trabajos_practicos{
+    background-color: rgba(0,0,0,0.5);
+}
+.lista_trabajos_practicos h1{
+    text-align: center;
+    text-shadow: -6px 3px 6px rgba(0,0,0,0.49);
+    font-size: 3em;
+}
+
+.lista_trabajos_practicos li{
+    padding: 0.5em 0%;;
+    margin: 0.25em;
+    display: block;
+    border: 0.5px solid rgb(0, 255, 157);
+}
+
+.lista_trabajos_practicos li:hover{
+    padding: 1em 0%;;
+    margin: 0.5em;
+    display: block;
+    border: 1.5px solid rgb(0, 255, 76);
+    background-color: rgb(100,155,50);
+}
+
+.lista_trabajos_practicos li dt{
+    text-align: center;
+    padding: 0%;
+}
+
+.lista_trabajos_practicos li dd{
+    text-align: center;
+    padding: 0%;
+}
+
+.lista_trabajos_practicos li a {
+	color: inherit;
+	text-decoration: none;
+    font-size: 1.5em;
+}
+
+.lista_trabajos_practicos li a:hover {
+	text-decoration:none;
+    font-size: 2em;
+}
+
+.trabajo_practico{
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+
+/* -.-.-.- PAGINA - TP HIPERTEXTO -.-.-.- */
+
+
+img{
+    display: block;
+    position: relative;
+    left:35%;
+    top: 10px;
+    /*right: 150%;*/
+    width: 30%;
+    height: auto;
+    
+}
+
+#caja_hipertexto{
+    background-image: url(imagen_hipertexto.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover/*contain*/;
+}
+
+#titulos, #data{
+    text-align: center;
+    font-size: 120%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#presentacion{
+    border: 2px solid  rgb(0, 255, 157);        
+}
+
+#sinopsis{
+    background-color: rgba(0,0,0,0.5);
+    margin-top: 5%;
+    padding: 5%;
+
+}
+#data{
+    background-color: rgba(0,0,0,0.5);
+}
+#links{
+    background-color: rgba(0,0,0,0.5);
+    border-color: white;
+    border-style: double;
+    border-radius: 100%;
+    padding: 1.5%;
+    margin: 5%;
+    text-align: center;
+}
