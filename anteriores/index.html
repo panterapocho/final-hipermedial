@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Final Hipermedial 2022</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<article class="tpfinal">
+		<div class="titulos_tpfinal">
+			<h1>Trabajo Práctico Final</h1>
+			<h2>Tecnologias Hipermediales</h2>
+			<h3>Lic. Artes Electrónicas - UNTREF 2022</h3>
+			<h4>Federico Bascher, Tomás Lilli</h4>
+		</div>
+		<div class="descripcion_tpfinal">
+			<p>Una vez cargada la aplicación, aparecerá un cartel "hacer click para comenzar". </p>
+			<p>Al hacer click, comenzará a reproducirse un track grabado por el Ensamble Electronico Hybrido en Estudiosaurio (Villa Luro, Buenos Aires) durante el año 2019, mientras podrán verse en simultaneo los espectrogramas de cada una de las pistas que lo componen. </p>
+			<p>Al desplazar el mouse sobre el canvas, el track tendrá modificaciones en la mezcla.</p>
+			<p>Desplazando el mouse sobre el eje horizontal se controla la apertura stereo de las pistas (si el mouse se encuentra todo hacia la izquierda se escucharán en mono, si en cambio se encuentra todo hacia la derecha, se escucharán en stereo al 100%). </p>
+			<p>Moviendo el mouse sobre el eje vertical se controlan los volumenes de 2 grupos de pistas. (si el mouse se encuentra hacia el borde superior de la pantalla se escucharan solo dos pistas, mientras que si se encuentra en el borde inferior de la pantalla se escucharan unicamente las otras dos. </p>
+			<p>Ubicando el mouse en la mitad de la pantalla, se escucharán ambos grupos de pistas.</p>
+			<p>Para escuchar el track "completo" se recomienda ubicar el mouse sobre el borde derecho, a mitad de la altura del canvas.</p>
+		</div>
+		<div class="nav_pag">
+			<p class="volver_index"><a href="../index.html">click acá</a> para volver a la pagina principal</p>
+		</div>
+		<div id="anim"></div>
+	</article>
+	<script src="p5.js"></script>
+	<script src="p5.sound.js"></script>
+	<script src="sketch_multitrack4.js"></script>
+</body>
+</html>
