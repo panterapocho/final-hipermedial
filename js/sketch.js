@@ -5,7 +5,10 @@ let track = []
 let spectrum = []
 let cantTrack = 4
 let vSlider;
+let tSlider;
 let tamSlider = 150;
+let tamSpectrum = 5;
+let tamSpectrumPixel = 1;
 
 function preload(){
 
@@ -36,10 +39,14 @@ function setup(){
     vSlider = createSlider(0.05, 1, 0.075, 0.001);
     vSlider.style('width', tamSlider+'px');
     vSlider.position(width - (width/20) - tamSlider, 100);
+    tSlider = createSlider(1, 20, 1, 0.01);
+    tSlider.style('width', tamSlider+'px');
+    tSlider.position(width - (width/20) - tamSlider, 200);
 }
   
 function draw(){
     vel = vSlider.value();
+    tamSpectrum = tSlider.value();
     trackMouse();
     if(keyCode == 49){sVertical();}
     if(keyCode == 50){sHorizontal();}
@@ -69,13 +76,15 @@ function sVertical(){
         //
         
         for (let i = 0; i< spectrum[t].length; i++){
-            let xV = map(i, 0, spectrum[t].length, 0, width*2);
-            if(t === 0){fill(255, 0, 0, spectrum[t][i]);}
-            if(t === 1){fill(0, 255, 0, spectrum[t][i]);}
-            if(t === 2){fill(0, 0, 255, spectrum[t][i]);}
-            if(t === 3){fill(132, 150, 164, spectrum[t][i]);}
-            
-            rect(xV, yV, 2,2)
+            let xV = map(i, 0, spectrum[t].length, 0, width*2*tamSpectrum);
+            let alphaSVert = spectrum[t][i];
+            if(xV >= width){alphaSVert = 0;}
+            if(t === 0){fill(spectrum[t][i], 0, 0, alphaSVert);}
+            if(t === 1){fill(0, spectrum[t][i], 0, alphaSVert);}
+            if(t === 2){fill(0, 0, spectrum[t][i], alphaSVert);}
+            if(t === 3){fill(132, spectrum[t][i], 164, alphaSVert);}
+            if(i === 1){tamSpectrumPixel = xV}
+            rect(xV, yV, tamSpectrumPixel,tamSpectrumPixel)
         }
     }
 }
@@ -93,13 +102,15 @@ function sHorizontal(){
             //
             
             for (let i = 0; i< spectrum[t].length; i++){
-                let yH = map(i, 0, spectrum[t].length, height, -height);
-                if(t === 0){fill(255, 0, 0, spectrum[t][i])}
-                if(t === 1){fill(0, 255, 0, spectrum[t][i])}
-                if(t === 2){fill(0, 0, 255, spectrum[t][i])}
-                if(t === 3){fill(132, 150, 164, spectrum[t][i])}
-                
-                rect(xH, yH, 1, spectrum[t].length/height)
+                let yH = map(i, 0, spectrum[t].length, height, -height*tamSpectrum);
+                let alphaSHor = spectrum[t][i];
+                if(yH <= 0){alphaSVert = 0;}
+                if(t === 0){fill(alphaSHor, 0, 0, alphaSHor)}
+                if(t === 1){fill(0, alphaSHor, 0, alphaSHor)}
+                if(t === 2){fill(0, 0, alphaSHor, alphaSHor)}
+                if(t === 3){fill(alphaSHor, 0, alphaSHor, alphaSHor)}
+                if(i === 1){tamSpectrumPixel = tamSpectrum}
+                rect(xH, yH, tamSpectrumPixel,tamSpectrumPixel)
             }
         }
 }
@@ -119,13 +130,17 @@ function sVerticalIND(){
         push();
         translate((width/cantTrack)*t,0);
         for (let i = 0; i< spectrum[t].length; i++){
-            let xV = map(i, 0, spectrum[t].length, 0, width/cantTrack);
-            if(t === 0){fill(255, 0, 0, spectrum[t][i]);}
-            if(t === 1){fill(0, 255, 0, spectrum[t][i]);}
-            if(t === 2){fill(0, 0, 255, spectrum[t][i]);}
-            if(t === 3){fill(132, 150, 164, spectrum[t][i]);}
             
-            rect(xV, yV, 2,2)
+            let xV = map(i, 0, spectrum[t].length, 0, width/(cantTrack/tamSpectrum));
+            let alphaSVerInd = spectrum[t][i];
+            if(xV >= width/cantTrack){alphaSVerInd = 0;}
+            if(t === 0){fill(alphaSVerInd, 0, 0, alphaSVerInd)}
+            if(t === 1){fill(0, alphaSVerInd, 0, alphaSVerInd)}
+            if(t === 2){fill(0, 0, alphaSVerInd, alphaSVerInd)}
+            if(t === 3){fill(alphaSVerInd, 0, alphaSVerInd, alphaSVerInd)}
+
+            if(i === 1){tamSpectrumPixel = xV}
+            rect(xV, yV, tamSpectrumPixel,tamSpectrumPixel)
         }
         pop();
     }
@@ -139,20 +154,24 @@ function sHorizontalIND(){
         noStroke();
         fill(255, 0, 255);
         xH+=vel;
-        if(xH >= windowWidth){xH=0;background(0, 255);}
+        if(xH >= width){xH=0;background(0, 255);}
         
         //
         push();
-        translate(0,0+(height/cantTrack)*t);
+        translate(0,(height/cantTrack)*t);
         console.log(-((height/cantTrack)*t));
         for (let i = 0; i< spectrum[t].length; i++){
-            let yH = map(i, 0, spectrum[t].length, (height/cantTrack), 0);
-            if(t === 0){fill(255, 0, 0, spectrum[t][i]);}
-            if(t === 1){fill(0, 255, 0, spectrum[t][i]);}
-            if(t === 2){fill(0, 0, 255, spectrum[t][i]);}
-            if(t === 3){fill(132, 150, 164, spectrum[t][i]);}
-            
-            rect(xH, yH, 1, spectrum[t].length/height);
+
+            let yH = map(i, 0, spectrum[t].length, (height/cantTrack), -(1*tamSpectrum));
+            let alphaSHorInd = spectrum[t][i];
+            if(yH <= 0){alphaSHorInd = 0;}
+            if(t === 0){fill(alphaSHorInd, 0, 0, alphaSHorInd)}
+            if(t === 1){fill(0, alphaSHorInd, 0, alphaSHorInd)}
+            if(t === 2){fill(0, 0, alphaSHorInd, alphaSHorInd)}
+            if(t === 3){fill(alphaSHorInd, 0, alphaSHorInd, alphaSHorInd)}
+                        
+            if(i === 1){tamSpectrumPixel = tamSpectrum/cantTrack}
+            rect(xH, yH, tamSpectrumPixel,tamSpectrumPixel)
         }
         pop();
     }
